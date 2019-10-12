@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import "./App.css";
+
+import { GlobalStyle } from "./global.styles";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { createStructuredSelector } from "reselect";
 import Header from "./components/header/Header";
@@ -36,9 +37,9 @@ class App extends Component {
     this.unsubscribeFromAuth();
   }
   render() {
-    console.log(this.state);
     return (
-      <div className="App">
+      <div>
+        <GlobalStyle />
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />

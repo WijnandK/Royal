@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import FormInput from "../formInput/FormInput";
-import Button from "../Button/Button";
-
+import CustomButton from "../Button/Button";
+import { SignUpContainer, SignUpTitle } from "./sign-up.styles";
 import "./SignUp.scss";
 import { auth, createUserProfile } from "../../firebase";
 
@@ -48,9 +48,9 @@ class SignUp extends Component {
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
-      <div className="sign-up">
-        <h2 className="title">I do not have an account</h2>
-        <span>Sign Up with email and password</span>
+      <SignUpContainer>
+        <SignUpTitle>I do not have a account</SignUpTitle>
+        <span>Sign up with your email and password</span>
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
           <FormInput
             type="text"
@@ -61,11 +61,11 @@ class SignUp extends Component {
             required
           />
           <FormInput
-            type="text"
+            type="email"
             name="email"
             value={email}
             onChange={this.handleChange}
-            label="Enter email"
+            label="Email"
             required
           />
           <FormInput
@@ -73,7 +73,7 @@ class SignUp extends Component {
             name="password"
             value={password}
             onChange={this.handleChange}
-            label="password"
+            label="Password"
             required
           />
           <FormInput
@@ -81,14 +81,13 @@ class SignUp extends Component {
             name="confirmPassword"
             value={confirmPassword}
             onChange={this.handleChange}
-            label="confirm password"
+            label="Confirm Password"
             required
           />
-          <Button type="submit">Sign up</Button>
+          <CustomButton type="submit">SIGN UP</CustomButton>
         </form>
-      </div>
+      </SignUpContainer>
     );
   }
 }
-
 export default SignUp;
